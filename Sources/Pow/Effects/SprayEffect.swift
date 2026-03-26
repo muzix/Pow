@@ -118,7 +118,7 @@ internal struct SpraySimulation<ParticleView: View>: ViewModifier, Simulative {
                     let insetAmount: Float = cos(ping.progress) * pow(ping.progress, 1) * -Float(symbolHeight) * 2.5
 
                     let phases: SIMD16<Float>     = (ping.progress * 0.75) + value2
-                    let sineScales: SIMD16<Float> = simd_abs(sin(phases * SIMD16(repeating: .pi)))
+                    let sineScales: SIMD16<Float> = simd_abs(sin(phases * SIMD16(repeating: Float.pi)))
                     let scales: SIMD16<Float>     = sineScales * (1.0 - pow(ping.progress, 8.0)) * pow(ping.progress, 0.25)
 
                     let brightness: SIMD16<Float> = .random(in: -0.1 ... 0.1, using: &rng)

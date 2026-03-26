@@ -56,7 +56,7 @@ internal struct WiggleSimulationModifier: ViewModifier, Simulative {
     )
 
     fileprivate var target: CGFloat {
-        16 * sin(2 * .pi * wiggleCount)
+        16 * sin(2 * Double.pi * wiggleCount)
     }
 
     private var isSimulationPaused: Bool {

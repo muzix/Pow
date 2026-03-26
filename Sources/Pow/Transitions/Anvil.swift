@@ -61,8 +61,8 @@ internal struct Anvil: ViewModifier, ProgressableAnimation, AnimatableModifier {
             .offset(x: 0, y: -400 * (1 - fallT))
             .animation(nil, value: progress)
             .offset(
-                x: 2 * sin(shakeT * 3 * .pi) * (1 - shakeT),
-                y: 4 * sin(shakeT * 4 * .pi) * (1 - shakeT)
+                x: 2 * sin(shakeT * 3 * Double.pi) * (1 - shakeT),
+                y: 4 * sin(shakeT * 4 * Double.pi) * (1 - shakeT)
             )
             .overlay {
                 Canvas { ctx, size in

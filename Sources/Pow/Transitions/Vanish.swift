@@ -131,7 +131,7 @@ internal struct Vanish: ViewModifier, Animatable, AnimatableModifier {
 
                             let circle = Circle().path(in: particleRect)
 
-                            let r = fmod((CGFloat(x) / .pi) + (CGFloat(y * y) / .pi), 1)
+                            let r = fmod((CGFloat(x) / Double.pi) + (CGFloat(y * y) / Double.pi), 1)
 
                             let dX: CGFloat = 6 * particleSize
 

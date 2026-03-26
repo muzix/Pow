@@ -248,12 +248,12 @@ private struct PulseStrokeAnimationModifier<EffectShape: InsettableShape, Effect
                 let progress = animatableData
                 let x: CGFloat = progress.beat(intensity: 5.0, frequency: 0.5)
                 let nx: CGFloat = x - 0.5
-                let v: CGFloat = sin(.pi * x)
+                let v: CGFloat = sin(Double.pi * x)
 
                 shape
                     .inset(by: nx * -insetAmount)
                     .strokeBorder(style, lineWidth: lineWidth * v)
-                    .opacity(1.0 - asin(.pi * Double(progress) / 2.0))
+                    .opacity(1.0 - asin(Double.pi * Double(progress) / 2.0))
                     .blur(radius: lineWidth * 0.125 * v)
                     .brightness(colorScheme == .dark ? Double(v) * 0.75 : 0.0)
             }
@@ -293,7 +293,7 @@ private struct PulseFillAnimationModifier<EffectShape: InsettableShape, EffectSh
                 shape
                     .inset(by: nx * -insetAmount)
                     .fill(style)
-                    .opacity(0.33 - asin(.pi * Double(progress) / 2.0))
+                    .opacity(0.33 - asin(Double.pi * Double(progress) / 2.0))
             }
             .animation(nil, value: animatableData)
             .onChange(of: animatableData == 1.0) { newValue in
@@ -307,8 +307,8 @@ private struct PulseFillAnimationModifier<EffectShape: InsettableShape, EffectSh
 
 private extension CGFloat {
     func beat(intensity: CGFloat = 2.0, frequency: CGFloat = 2.0) -> CGFloat {
-        let v = atan(sin(self * .pi * frequency) * intensity)
-        return (v + .pi / 2.0) / .pi
+        let v = atan(sin(self * Double.pi * frequency) * intensity)
+        return (v + Double.pi / 2.0) / Double.pi
     }
 }
 

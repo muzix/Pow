@@ -13,7 +13,7 @@ extension CGSize {
             height: abs(width * sin(Double(theta)) + height * cos(Double(theta)))
         )
 
-        theta += .pi / 2
+        theta += Double.pi / 2
 
         let sizeB: CGSize = CGSize(
             width: abs(width * sin(Double(theta)) + height * cos(Double(theta))),

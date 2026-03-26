@@ -105,7 +105,7 @@ internal struct RisingParticleSimulation<ParticlesView: View>: ViewModifier, Sim
                     context.drawLayer { context in
                         context.rotate(by: .degrees(-angle.degrees * Double(1 - progress)))
                         context.translateBy(
-                            x: progress * sin(progress * 1.4 * .pi) * .random(in: -20 ... 20, using: &rng),
+                            x: progress * sin(progress * 1.4 * Double.pi) * .random(in: -20 ... 20, using: &rng),
                             y: progress * -50 - .random(in: 0 ... 10, using: &rng)
                         )
                         context.rotate(by: angle)

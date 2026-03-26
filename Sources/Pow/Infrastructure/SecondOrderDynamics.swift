@@ -18,9 +18,9 @@ internal struct SecondOrderDynamics<V: VectorArithmetic> {
     ///   - zeta: The damping coefficient.
     ///   - r: The initial response of the system.
     init(f: Double = 1, zeta: Double = 0.5, r: Double = 2, x0: V = .zero) {
-        self.k1 = zeta / (.pi * f)
-        self.k2 = 1 / pow(2 * .pi * f, 2)
-        self.k3 = (r * zeta) / (2 * .pi * f)
+        self.k1 = zeta / (Double.pi * f)
+        self.k2 = 1 / pow(2 * Double.pi * f, 2)
+        self.k3 = (r * zeta) / (2 * Double.pi * f)
 
         self.previousTarget = x0
         self.value = x0

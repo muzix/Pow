@@ -50,7 +50,7 @@ internal struct ShineModifier: ViewModifier, Animatable {
                     let bounds = frame.boundingBox(at: resolvedAngle)
 
                     LinearGradient(
-                        colors: stride(from: 0.0, through: .pi, by: 0.2).map {
+                        colors: stride(from: 0.0, through: Double.pi, by: 0.2).map {
                             .white.opacity(pow(sin($0), 2) * 0.8 * base)
                         },
                         startPoint: .leading,

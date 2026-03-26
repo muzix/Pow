@@ -194,8 +194,8 @@ private struct MinimalPCG {
     var inc: UInt64
 
     init(string: String) {
-        self.state = string.utf8.reduce(0.0) { a, b in a + (Double(b) * .pi) }.bitPattern
-        self.inc = (Double(string.count) * .pi).bitPattern
+        self.state = string.utf8.reduce(0.0) { a, b in a + (Double(b) * Double.pi) }.bitPattern
+        self.inc = (Double(string.count) * Double.pi).bitPattern
     }
 
     init(state: UInt64, inc: UInt64) {

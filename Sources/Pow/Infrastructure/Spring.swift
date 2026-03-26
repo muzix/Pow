@@ -58,7 +58,7 @@ internal struct Spring {
         guard x0 != .zero || v0 != .zero else { return 0 }
 
         if zeta < 1 {
-            guard v0 != .zero else { return .pi / omega1 }
+            guard v0 != .zero else { return Double.pi / omega1 }
 
             let m: Double = sqrt(x0.magnitudeSquared)
             let v: Double = sqrt(v0.magnitudeSquared)
@@ -67,7 +67,7 @@ internal struct Spring {
                 (exp(-delta * t) * (-omega1 * v * cos(omega1 * t) + (v * delta + m * (pow(omega1, 2) + pow(delta, 2))) * sin(omega1 * t))) / omega1
             }
 
-            return clamp(0, secantMethod(f: derivative, 0, period / (.pi * stiffness)), 3)
+            return clamp(0, secantMethod(f: derivative, 0, period / (Double.pi * stiffness)), 3)
         } else {
             guard v0 != .zero else { return 0 }
 
@@ -80,13 +80,13 @@ internal struct Spring {
 
 internal extension Spring {
     var response: Double {
-        (2 * .pi) / sqrt(stiffness * mass)
+        (2 * Double.pi) / sqrt(stiffness * mass)
     }
 }
 
 private extension Spring {
     var dampingCoefficient: Double {
-        4 * .pi * zeta * mass / response
+        4 * Double.pi * zeta * mass / response
     }
 
     var criticalDampingCoefficient: Double {
@@ -110,7 +110,7 @@ private extension Spring {
     }
 
     var period: Double {
-        2 * .pi * sqrt(stiffness / mass)
+        2 * Double.pi * sqrt(stiffness / mass)
     }
 }
 
